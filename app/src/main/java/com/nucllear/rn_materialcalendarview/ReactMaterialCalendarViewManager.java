@@ -186,7 +186,8 @@ public class ReactMaterialCalendarViewManager extends SimpleViewManager<ReactMat
 
     @ReactProp(name = "selectedDates")
     public void setSelectedDates(ReactMaterialCalendarView view, ReadableArray dates) throws ParseException {
-        ArrayList<Date> selectedDates = new ArrayList<Date>();
+       view.clearSelection();
+       ArrayList<Date> selectedDates = new ArrayList<Date>();
         for (int i = 0; i < dates.size(); i++) {
             String type = dates.getType(i).name();
             if("String".equals(type) && dates.getString(i).matches(DATE_REGEX)){
